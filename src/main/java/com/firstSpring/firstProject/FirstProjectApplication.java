@@ -1,5 +1,7 @@
 package com.firstSpring.firstProject;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -14,9 +16,19 @@ public class FirstProjectApplication {
 
 }
 
+@Entity
 class Coffee {
-	private final String id;
+	@Id
+	private String id;
 	private String name;
+
+	public Coffee() {
+
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
 
 	public Coffee(String id, String name) {
 		this.id = id;
