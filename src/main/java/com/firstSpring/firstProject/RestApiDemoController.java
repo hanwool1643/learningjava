@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/coffees")
 public class RestApiDemoController {
     private List<Coffee> coffees = new ArrayList<>();
 
@@ -19,12 +19,12 @@ public class RestApiDemoController {
                 new Coffee("Cafe Tres Pontas")
         ));
     }
-    @GetMapping("/coffees")
+    @GetMapping
     Iterable<Coffee> getCoffees() {
         return coffees;
     }
 
-    @GetMapping("/coffees/{id}")
+    @GetMapping("/{id}")
     Optional<Coffee> getCoffeeById(@PathVariable String id) {
         for (Coffee c: coffees) {
             if (c.getId().equals(id)) {
@@ -34,13 +34,13 @@ public class RestApiDemoController {
         return Optional.empty();
     }
 
-    @PostMapping("/coffees")
+    @PostMapping
     Coffee postCoffee(@RequestBody Coffee coffee) {
         coffees.add(coffee);
         return coffee;
     }
 
-    @PutMapping("/coffees/{id}")
+    @PutMapping("/{id}")
     Coffee putCoffee(@PathVariable String id, @RequestBody Coffee coffee) {
         int coffeeIndex = -1;
 
@@ -53,7 +53,7 @@ public class RestApiDemoController {
         return (coffeeIndex == -1) ? postCoffee(coffee) :coffee;
     }
 
-    @DeleteMapping("/coffees/{id}")
+    @DeleteMapping("/{id}")
     void deleteCoffee(@PathVariable String id) {
         coffees.removeIf(c-> c.getId().equals(id));
     }
