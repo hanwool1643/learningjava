@@ -31,12 +31,7 @@ public class RestApiDemoController {
 
     @GetMapping("/{id}")
     Optional<Coffee> getCoffeeById(@PathVariable String id) {
-        for (Coffee c : coffees) {
-            if (c.getId().equals(id)) {
-                return Optional.of(c);
-            }
-        }
-        return Optional.empty();
+        return coffeeRepository.findById(id);
     }
 
     @PostMapping
