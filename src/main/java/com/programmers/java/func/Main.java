@@ -1,19 +1,26 @@
 package com.programmers.java.func;
 
-class Greeting implements MySupply {
-    @Override
-    public String supply() {
-        return "Hello World";
-    }
-}
-class SayHello implements  MyRunnable {
-    @Override
-    public void run() {
-        System.out.println(new Greeting().supply());
-    }
-}
 public class Main {
     public static void main(String[] args) {
-        new SayHello().run();
+        new MySupply() {
+            @Override
+            public String supply() {
+                return "Hello World";
+            }
+        }.supply();
+
+        MyRunnable r = new MyRunnable() {
+            @Override
+            public void run() {
+                MySupply s = new MySupply() {
+                    @Override
+                    public String supply() {
+                        return "Hello Hello";
+                    }
+                };
+                System.out.println(s.supply());
+            };
+        };
+        r.run();
     }
 }
