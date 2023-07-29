@@ -1,13 +1,19 @@
 package com.programmers.java.def2;
 
 interface Flyable {
-    void fly();
+    default void fly() {
+        System.out.println("Fly");
+    }
 }
 
 interface Swimmable {
-    void swim();
+    default void swim() {
+        System.out.println("Swim");
+    }
 }
 
 interface Walkable {
-    void walk();
+    default void walk() {
+        System.out.println("Walk");
+    }
 }
