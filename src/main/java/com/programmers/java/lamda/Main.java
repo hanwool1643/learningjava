@@ -8,9 +8,9 @@ public class Main {
 
         MySupplier s = () ->"Hello World";
 
-        MyMapper m = (str) -> str.length();
+        MyMapper m = String::length;
 
-        MyConsumer c = i -> System.out.println(i);
+        MyConsumer c = System.out::println;
 
         MyRunnable r = () -> c.consume(m.map(s.supply()));
 
