@@ -18,20 +18,14 @@ public class RestApiDemoController {
     }
 
     @GetMapping
-    Iterable<Coffee> getCoffees() {
-        return coffeeRepository.findAll();
-    }
+    Iterable<Coffee> getCoffees() { return coffeeRepository.findAll(); }
 
     @GetMapping("/{id}")
-    Optional<Coffee> getCoffeeById(@PathVariable String id) {
-        return coffeeRepository.findById(id);
-    }
+    Optional<Coffee> getCoffeeById(@PathVariable String id) { return coffeeRepository.findById(id); }
+
 
     @PostMapping
-    Coffee postCoffee(@RequestBody Coffee coffee) {
-        return coffeeRepository.save(coffee);
-    }
-
+    Coffee postCoffee(@RequestBody Coffee coffee) { return coffeeRepository.save(coffee); }
     @PutMapping("/{id}")
     ResponseEntity<Coffee> putCoffee(@PathVariable String id, @RequestBody Coffee coffee) {
         return (!coffeeRepository.existsById(id))
