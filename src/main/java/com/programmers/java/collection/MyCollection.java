@@ -32,6 +32,10 @@ public class MyCollection<T> {
 //        });
         return new MyCollection<>(newList);
     }
+
+    public int size() {
+        return list.size();
+    }
     public void foreach(Consumer<T> consumer) {
         for(int i = 0; i < list.size(); i ++) {
             T data = list.get(i);
