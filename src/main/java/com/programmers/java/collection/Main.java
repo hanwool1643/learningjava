@@ -7,10 +7,8 @@ import java.util.function.Consumer;
 
 public class Main {
     public static void main(String[] args) {
-        MyCollection <String> c1 = new MyCollection<>(Arrays.asList("A","BC","CDA","DEFD","EFASE"));
-
-        MyCollection <Integer> c2 = c1.map(String::length);
-
-        c2.foreach(System.out::println);
+        new MyCollection<>(Arrays.asList("A","BC","CDA","DEFD","EFASE"))
+        .map(String::length)
+        .foreach(System.out::println);
     }
 }
