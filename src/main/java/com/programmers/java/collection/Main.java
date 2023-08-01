@@ -7,8 +7,10 @@ import java.util.function.Consumer;
 
 public class Main {
     public static void main(String[] args) {
+        // method chain
         new MyCollection<>(Arrays.asList("A","BC","CDA","DEFD","EFASE"))
         .map(String::length)
+        .filter(i->i%2 ==0)
         .foreach(System.out::println);
     }
 }

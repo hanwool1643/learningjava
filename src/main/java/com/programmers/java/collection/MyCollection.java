@@ -4,12 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
 
 public class MyCollection<T> {
     private List<T> list;
 
     public MyCollection(List<T> list) {
         this.list = list;
+    }
+
+    public MyCollection<T> filter(Predicate<T> predicate) {
+        List<T> newList = new ArrayList<>();
+        foreach(d -> {
+            if (predicate.test(d)) newList.add(d);
+        });
+        return new MyCollection<>(newList);
     }
 
     public <U> MyCollection<U> map(Function<T,U> function) {
