@@ -7,12 +7,10 @@ import java.util.function.Consumer;
 
 public class Main {
     public static void main(String[] args) {
-        new MyCollection<>(Arrays.asList(1,2,3,4,5))
-                .foreach(new Consumer<Integer>() {
-                    @Override
-                    public void accept(Integer integer) {
-                        System.out.println(integer);
-                    }
-                });
+        MyCollection <String> c1 = new MyCollection<>(Arrays.asList("A","BC","CDA","DEFD","EFASE"));
+
+        MyCollection <Integer> c2 = c1.map(String::length);
+
+        c2.foreach(System.out::println);
     }
 }
