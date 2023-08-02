@@ -9,11 +9,12 @@ public class User {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+    public boolean isOver19() {
+        return age >=19; //true or false 반환
     }
 
-    public String getName() {
-        return name;
+    @Override
+    public String toString() {
+        return name + "(" + age + ")";
     }
 }

@@ -17,8 +17,7 @@ public class Main2 {
                     new User(23, "SSS")
             )
     )
-            .filter(u  -> u.getAge() >=19)
-            .map(User::getName)
+            .filter(u  -> u.isOver19())
             .foreach((System.out::println));
 
     }

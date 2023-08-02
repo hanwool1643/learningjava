@@ -1,5 +1,7 @@
 package com.programmers.java.collection;
 
+import com.programmers.java.iter.MyIterator;
+
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -7,12 +9,17 @@ import java.util.function.Consumer;
 
 public class Main {
     public static void main(String[] args) {
-        // method chain
-        int s = new MyCollection<>(Arrays.asList("A","BC","CDA","DEFD","EFASE"))
-        .map(String::length)
-        .filter(i->i%2 == 1)
-        .size();
+        MyIterator<String> iter =
+        new MyCollection<>(Arrays.asList("A", "BC", "CDA", "DEFD", "EFASE"))
+                .iterator();
 
-        System.out.println(s);
+        while(iter.hasNext()) {
+            String s = iter.next();
+            int len = s.length();
+            if(len % 2==0) continue;
+            System.out.println(s);
+        }
     }
+
+    ;
 }
